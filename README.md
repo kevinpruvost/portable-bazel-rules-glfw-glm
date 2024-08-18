@@ -29,6 +29,9 @@ cc_binary(
 cc_shared_binary(
     name = "my_app_shared",
     visibility = ["//visibility:public"],
+    deps = [
+        ":my_app"
+    ],
     dynamic_deps = [
         "//:glfw"
     ]
