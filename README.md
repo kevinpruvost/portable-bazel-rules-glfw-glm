@@ -20,6 +20,8 @@ cc_binary(
 )
 ```
 
+You can also check my [Computer Graphcis project on Vulkan & Metal using Bazel](https://github.com/kevinpruvost/Bazel_Vulkan_Metal) if you get any problems as I use GLFW and glm.
+
 ### Platform Support
 
 - **Windows**: Fully supported.
