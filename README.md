@@ -8,15 +8,30 @@ This repository provides portable Bazel rules for integrating **GLFW** and **GLM
 
 Simply include the libraries `glfw`, `glm`, or `glm_header_only` in your Bazel `BUILD` files to integrate them into your binaries.
 
+If you don't need GLFW to be dynamic, DO NOT FORGET to disable the preprocessor macros _GLFW_BUILD_DLL in `GLFW/BUILD`.
+
 ```python
 cc_binary(
     name = "my_app",
     srcs = ["main.cpp"],
+    copts = [
+# Disable if you want to use GLFW as a static library
+        "-DGLFW_DLL",
+    ],
     deps = [
-        "//:glfw",
+        "//:glfw_static",
         "//:glm",
         # or "//:glm_header_only"
     ],
+)
+
+# if you need 
+cc_shared_binary(
+    name = "my_app_shared",
+    visibility = ["//visibility:public"],
+    dynamic_deps = [
+        "//:glfw"
+    ]
 )
 ```
 
