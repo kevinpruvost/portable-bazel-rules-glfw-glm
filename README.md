@@ -44,7 +44,9 @@ You can also check my [Computer Graphcis project on Vulkan & Metal using Bazel](
 
 - **Windows**: Fully supported.
 - **macOS**: Fully supported.
-- **Linux**: Built for X11. You can easily tweak the build for Wayland or other configurations if needed.
+- **Linux**: Built for X11 & Wayland, but X11 by default. You can easily tweak the build for Wayland or other configurations if needed, here is how to:
+    - `GLFW/BUILD`: comment every instance of `"-D_GLFW_X11"` and uncomment every instance of `"-D_GLFW_WAYLAND"`.
+
 
 ## Versions
 
